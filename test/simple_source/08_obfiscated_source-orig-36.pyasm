@@ -1,0 +1,108 @@
+# pydisasm version 4.2.4
+# Python bytecode 3.6 (3379)
+# Disassembled from Python 3.6.9 (default, Nov 17 2019, 17:31:26)
+# [GCC 9.2.1 20191008]
+# Timestamp in code: 1586759333 (2020-04-13 02:28:53)
+# Source code size mod 2**32: 262 bytes
+
+# Method Name:       lambda_0x7f91dde38810
+# Filename:          test/simple_source/08_obfiscated_source.py
+# Argument count:    1
+# Kw-only arguments: 0
+# Number of locals:  1
+# Stack size:        2
+# Flags:             0x00000013 (NESTED | NEWLOCALS | OPTIMIZED)
+# First Line:        5
+# Constants:
+#    0: None
+# Varnames:
+#	a
+# Positional arguments:
+#	a
+# Free variables:
+#    0: msg
+  5:
+            LOAD_DEREF           (msg)
+            LOAD_FAST            (a)
+            BINARY_ADD
+            RETURN_VALUE
+
+
+# Method Name:       lambda_0x7f91dde38810
+# Filename:          test/simple_source/08_obfiscated_source.py
+# Argument count:    1
+# Kw-only arguments: 0
+# Number of locals:  2
+# Stack size:        3
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        3
+# Constants:
+#    0: None
+#    1: 'mangled local variable'
+#    2: <code3 object lambda_0x7f91dde38810 at 0x7f91dde7e3c8, file "test/simple_source/08_obfiscated_source.py", line 5>
+#    3: 'obfuscated_fn.<locals>.<lambda>'
+# Names:
+#    0: mangled_global
+# Varnames:
+#	a, var
+# Positional arguments:
+#	a
+# Local variables:
+#    1: var
+# Cell variables:
+#    0: msg
+  4:
+            LOAD_CONST           1 ('mangled local variable')
+            STORE_DEREF          (msg)
+
+  5:
+            LOAD_CLOSURE         (msg)
+            BUILD_TUPLE          1
+            LOAD_CONST           2 (<code3 object lambda_0x7f91dde38810 at 0x7f91dde7e3c8, file "test/simple_source/08_obfiscated_source.py", line 5>)
+            LOAD_CONST           ('obfuscated_fn.<locals>.<lambda>')
+            MAKE_FUNCTION        8 (closure)
+            STORE_FAST           (var)
+
+  6:
+            LOAD_GLOBAL          (mangled_global)
+            RETURN_VALUE
+
+
+# Method Name:       <module>
+# Filename:          test/simple_source/08_obfiscated_source.py
+# Argument count:    0
+# Kw-only arguments: 0
+# Number of locals:  0
+# Stack size:        2
+# Flags:             0x00000040 (NOFREE)
+# First Line:        2
+# Constants:
+#    0: 'This is a mangled global'
+#    1: <code3 object obfuscated_fn at 0x7f91dde7e6a0, file "test/simple_source/08_obfiscated_source.py", line 3>
+#    2: 'obfuscated_fn'
+#    3: 'Another'
+#    4: None
+# Names:
+#    0: mangled_global
+#    1: obfuscated_fn
+#    2: AssertionError
+  2:
+            LOAD_CONST           0 ('This is a mangled global')
+            STORE_NAME           (mangled_global)
+
+  3:
+            LOAD_CONST           1 (<code3 object obfuscated_fn at 0x7f91dde7e6a0, file "test/simple_source/08_obfiscated_source.py", line 3>)
+            LOAD_CONST           ('obfuscated_fn')
+            MAKE_FUNCTION        0
+            STORE_NAME           (obfuscated_fn)
+
+  8:
+            LOAD_NAME            (obfuscated_fn)
+            LOAD_CONST           ('Another')
+            CALL_FUNCTION        1
+            POP_JUMP_IF_TRUE     L24 (to 24)
+            LOAD_GLOBAL          (AssertionError)
+            RAISE_VARARGS        1
+L24:
+            LOAD_CONST           (None)
+            RETURN_VALUE
